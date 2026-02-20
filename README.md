@@ -66,6 +66,31 @@ The current implementation relies on **MapQ**, a UCSF Chimera plugin, which intr
 | **Max \|diff\|** | 0.291 | **0.055** |
 | **Linear fit** | — | qscore = 0.994 × MapQ + 0.046 |
 
+### Per-residue Validation
+
+To confirm agreement at the individual residue level (not just global averages), we performed a detailed per-residue comparison on **5A1A / EMD-2984** (2.2 Å, 20 chains, 4085 residues):
+
+<div align="center">
+
+![Per-residue Q-score correlation](results/per_residue_correlation.png)
+
+**Figure 2.** (A) Per-residue scatter plot with linear fit. (B) Distribution of per-residue differences. (C) Offset along Chain A sequence with 20-residue moving average.
+
+</div>
+
+| Metric | Value |
+|--------|:-----:|
+| **Residues matched** | 4,085 |
+| **Pearson r** | **0.987** |
+| **Spearman ρ** | **0.973** |
+| **Mean offset** | +0.028 ± 0.017 |
+| **RMSD** | 0.033 |
+| **Max \|diff\|** | 0.109 |
+| **Linear fit** | y = 0.992x + 0.034 |
+| **R²** | 0.975 |
+
+> **Key finding:** Per-residue agreement is strong across the entire Q-score range (0.1–0.8), confirming that the pure Python implementation preserves residue-level ranking and can reliably identify poorly resolved regions.
+
 ### Full Comparison Table
 
 <details>
@@ -176,10 +201,14 @@ qscore_validation/
 ├── README.md
 ├── scripts/
 │   ├── run_qscore_comparison.py   # Download, compute, and compare Q-scores
-│   └── analyze_results.py         # Statistical analysis and plotting
+│   ├── analyze_results.py
+│   └── per_residue_comparison.py  # Per-residue validation (Fig. 2)         # Statistical analysis and plotting
 ├── results/
 │   ├── qscore_comparison_full.csv # All 28 entries with Q-scores
-│   └── qscore_correlation.png     # Three-panel figure
+│   ├── qscore_correlation.png
+│   ├── per_residue_correlation.png
+│   ├── per_residue_5a1a.csv
+│   └── per_residue_summary.json     # Three-panel figure
 └── test_data/                     # Downloaded on demand (not committed)
 ```
 
