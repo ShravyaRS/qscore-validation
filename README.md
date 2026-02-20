@@ -91,6 +91,29 @@ To confirm agreement at the individual residue level (not just global averages),
 
 > **Key finding:** Per-residue agreement is strong across the entire Q-score range (0.1–0.8), confirming that the pure Python implementation preserves residue-level ranking and can reliably identify poorly resolved regions.
 
+### PDB-IHM Integrative Structure
+
+To confirm compatibility with IHMValidation's target data, we tested on **PDBDEV_00000141 / EMD-14774** — an integrative model of PTX3 Pentraxin (2.5 Å) combining cryo-EM and AlphaFold-derived coordinates.
+
+<div align="center">
+
+![PDB-IHM Q-score analysis](results/ihm_pdbdev_00000141.png)
+
+**Figure 3.** (A) Q-score distribution across 2,912 residues. (B) Per-chain box plots showing consistent Q-scores across all 8 symmetric chains. (C) Q-score along Chain A sequence with 10-residue moving average.
+
+</div>
+
+| Property | Value |
+|----------|:-----:|
+| **Entry** | PDBDEV_00000141 / EMD-14774 / 9A24 |
+| **Type** | Integrative (cryo-EM + AlphaFold) |
+| **Resolution** | 2.5 Å |
+| **Chains / Residues** | 8 / 2,912 |
+| **Overall Q-score** | **0.337** |
+| **Computation time** | ~6 seconds |
+
+> **Key finding:** The pure Python Q-score runs successfully on PDB-IHM integrative structures, producing physically meaningful per-chain and per-residue scores without any Chimera dependency.
+
 ### Full Comparison Table
 
 <details>
@@ -202,13 +225,16 @@ qscore_validation/
 ├── scripts/
 │   ├── run_qscore_comparison.py   # Download, compute, and compare Q-scores
 │   ├── analyze_results.py
-│   └── per_residue_comparison.py  # Per-residue validation (Fig. 2)         # Statistical analysis and plotting
+│   ├── per_residue_comparison.py  # Per-residue validation (Fig. 2)
+│   └── ihm_entry_test.py          # PDB-IHM integrative model test (Fig. 3)         # Statistical analysis and plotting
 ├── results/
 │   ├── qscore_comparison_full.csv # All 28 entries with Q-scores
 │   ├── qscore_correlation.png
 │   ├── per_residue_correlation.png
 │   ├── per_residue_5a1a.csv
-│   └── per_residue_summary.json     # Three-panel figure
+│   ├── per_residue_summary.json
+│   ├── ihm_pdbdev_00000141.json
+│   └── ihm_pdbdev_00000141.png     # Three-panel figure
 └── test_data/                     # Downloaded on demand (not committed)
 ```
 

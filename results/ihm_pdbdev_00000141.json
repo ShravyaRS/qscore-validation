@@ -1,0 +1,59 @@
+{
+  "entry": "PDBDEV_00000141",
+  "emdb": "EMD-14774",
+  "pdb": "9A24",
+  "resolution": 2.5,
+  "description": "PTX3 Pentraxin Domain (integrative: cryo-EM + AlphaFold)",
+  "n_residues": 2912,
+  "n_atoms": 22516,
+  "n_chains": 8,
+  "overall_qscore": 0.3369,
+  "qscore_median": 0.4262,
+  "qscore_std": 0.3027,
+  "qscore_range": [
+    -0.3291,
+    0.7917
+  ],
+  "per_chain": {
+    "A": {
+      "n_residues": 364,
+      "mean_qscore": 0.3339,
+      "std_qscore": 0.3025
+    },
+    "B": {
+      "n_residues": 364,
+      "mean_qscore": 0.3404,
+      "std_qscore": 0.3054
+    },
+    "C": {
+      "n_residues": 364,
+      "mean_qscore": 0.3327,
+      "std_qscore": 0.303
+    },
+    "D": {
+      "n_residues": 364,
+      "mean_qscore": 0.3365,
+      "std_qscore": 0.301
+    },
+    "E": {
+      "n_residues": 364,
+      "mean_qscore": 0.3353,
+      "std_qscore": 0.3003
+    },
+    "F": {
+      "n_residues": 364,
+      "mean_qscore": 0.3373,
+      "std_qscore": 0.3049
+    },
+    "G": {
+      "n_residues": 364,
+      "mean_qscore": 0.3395,
+      "std_qscore": 0.3035
+    },
+    "H": {
+      "n_residues": 364,
+      "mean_qscore": 0.34,
+      "std_qscore": 0.3011
+    }
+  }
+}
