@@ -64,7 +64,7 @@ The current implementation relies on **MapQ**, a UCSF Chimera plugin, which intr
 | **Spearman ρ** | 0.987 | **0.995** |
 | **Mean offset** | +0.031 ± 0.063 | **+0.043 ± 0.009** |
 | **Max \|diff\|** | 0.291 | **0.055** |
-| **Linear fit** | — | qscore = 0.994 × MapQ + 0.046 |
+| **Linear fit** | - | qscore = 0.994 × MapQ + 0.046 |
 
 ### Per-residue Validation
 
@@ -93,7 +93,7 @@ To confirm agreement at the individual residue level (not just global averages),
 
 ### PDB-IHM Integrative Structure
 
-To confirm compatibility with IHMValidation's target data, we tested on **PDBDEV_00000141 / EMD-14774** — an integrative model of PTX3 Pentraxin (2.5 Å) combining cryo-EM and AlphaFold-derived coordinates.
+To confirm compatibility with IHMValidation's target data, we tested on **PDBDEV_00000141 / EMD-14774** - an integrative model of PTX3 Pentraxin (2.5 Å) combining cryo-EM and AlphaFold-derived coordinates.
 
 <div align="center">
 
@@ -150,7 +150,7 @@ To confirm compatibility with IHMValidation's target data, we tested on **PDBDEV
 | EMD-71406 | 9P9C | 4.0 | 0.324 | 0.375 | +0.051 | +15.7% |
 | EMD-53590 | 9R5K | 4.2 | 0.294 | 0.349 | +0.055 | +18.6% |
 
-\* **Outlier** — extremely low map contrast (σ ≈ 100× below normal).
+\* **Outlier** - extremely low map contrast (σ ≈ 100× below normal).
 
 </details>
 
@@ -210,7 +210,7 @@ The integration code for IHMValidation is available on a separate branch:
 
 ### Required fix for jamaliki/qscore
 ```python
-# qscore/utils.py — interpolate_grid_at_points()
+# qscore/utils.py - interpolate_grid_at_points()
 # Add bounds_error=False to handle atoms near map edges
 return interpn((x, y, z), map.grid, p, bounds_error=False, fill_value=0.0)
 ```
@@ -271,9 +271,9 @@ python scripts/analyze_results.py
 
 3. Lawson, C.L. et al. (2021). Cryo-EM model validation recommendations based on outcomes of the 2019 EMDataResource challenge. *Nature Methods* **18**, 156–164. [doi:10.1038/s41592-020-01051-w](https://doi.org/10.1038/s41592-020-01051-w)
 
-4. MapQ — Chimera plugin for Q-scores: [github.com/gregdp/mapq](https://github.com/gregdp/mapq)
+4. MapQ - Chimera plugin for Q-scores: [github.com/gregdp/mapq](https://github.com/gregdp/mapq)
 
-5. jamaliki/qscore — Pure Python reimplementation: [github.com/jamaliki/qscore](https://github.com/jamaliki/qscore)
+5. jamaliki/qscore - Pure Python reimplementation: [github.com/jamaliki/qscore](https://github.com/jamaliki/qscore)
 
 ---
 
